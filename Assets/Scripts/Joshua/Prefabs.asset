@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Prefabs
   m_EditorClassIdentifier: 
   dungeons:
-  - {fileID: 7972477851840428733, guid: df8d74a91f1eab247b706059a9aa7531, type: 3}
-  - {fileID: 918321964145298368, guid: 8d686b654cedfea44bafda34deff7eef, type: 3}
-  - {fileID: 7915520109974196923, guid: 5a631c08a08149c4b9992cd05911739c, type: 3}
+  - {fileID: 860630616851116886, guid: a03ced6ee2bf0074f847b8d6669f126a, type: 3}
