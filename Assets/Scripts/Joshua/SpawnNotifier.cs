@@ -15,7 +15,6 @@ public class SpawnNotifier : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        print("called");
         parentObject.GetComponent<DungeonSpawner>().Spawn(gameObject.name);
         gameObject.SetActive(false);
     }

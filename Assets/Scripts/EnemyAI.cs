@@ -86,13 +86,16 @@ public class EnemyAI : MonoBehaviour
     {
         if (patrolPoints.Length != 0)
         {
-            agent.destination = patrolPoints[i].position;
-            if (Vector3.Distance(agent.destination, transform.position) < 2.0f)
+            if (agent.isOnNavMesh)
             {
-                i++;
-                if (i == patrolPoints.Length)
+                agent.destination = patrolPoints[i].position;
+                if (Vector3.Distance(agent.destination, transform.position) < 2.0f)
                 {
-                    i = 0;
+                    i++;
+                    if (i == patrolPoints.Length)
+                    {
+                        i = 0;
+                    }
                 }
             }
         }
