@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DungeonSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject dungeon;
     float size;
+    public PrefabManager objects;
 
     private void Start()
     {
-        size = dungeon.GetComponent<Renderer>().bounds.size.x;
+        size = objects.dungeon.GetComponent<Renderer>().bounds.size.x;
     }
 
 
@@ -38,11 +38,9 @@ public class DungeonSpawner : MonoBehaviour
                 break;
             default:
                 break;
-
         }
 
-        print("spawned");
-        GameObject spawnedDungeon = Instantiate(dungeon, newPos ,Quaternion.identity) as GameObject;
+        GameObject spawnedDungeon = (GameObject)Instantiate(objects.dungeon, newPos, Quaternion.identity);
         spawnedDungeon.transform.Find(wallToDisable).gameObject.SetActive(false);
     }
 }
