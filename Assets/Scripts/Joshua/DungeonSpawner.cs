@@ -16,7 +16,8 @@ public class DungeonSpawner : MonoBehaviour
         size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
         doorController = GetComponent<DoorController>();
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        StartCoroutine(open());
+
     }
 
 
@@ -48,6 +49,20 @@ public class DungeonSpawner : MonoBehaviour
         direction.Normalize();
         player.transform.position += direction*2;
         Destroy(gameObject, 1f);
+    }
+
+    IEnumerator open()
+    {
+        yield return new WaitForSeconds(1.0f);
+        doorController.DoorOpen();
+        StartCoroutine(close());
+    }
+
+    IEnumerator close()
+    {
+        yield return new WaitForSeconds(1.0f);
+        doorController.DoorClosed();
+        StartCoroutine(open());
     }
 
 }

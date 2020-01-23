@@ -603,7 +603,6 @@ GameObject:
   - component: {fileID: 860630615489464700}
   - component: {fileID: 860630615489464701}
   - component: {fileID: 667636448}
-  - component: {fileID: 667636449}
   m_Layer: 0
   m_Name: WallLeft
   m_TagString: Door
@@ -710,18 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50f6f5b6da4b704693b92ffdb8ad7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &667636449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860630615489464699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9805108608b302545aaa2143bd631132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &860630615972811355
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +723,6 @@ GameObject:
   - component: {fileID: 860630615972811356}
   - component: {fileID: 860630615972811357}
   - component: {fileID: 1127909888}
-  - component: {fileID: 1127909889}
   m_Layer: 0
   m_Name: WallRight
   m_TagString: Door
@@ -841,18 +827,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b50f6f5b6da4b704693b92ffdb8ad7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1127909889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860630615972811355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9805108608b302545aaa2143bd631132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &860630616364593555
@@ -988,7 +962,6 @@ GameObject:
   - component: {fileID: 860630616581488616}
   - component: {fileID: 860630616581488617}
   - component: {fileID: 1760699468}
-  - component: {fileID: 1760699469}
   m_Layer: 0
   m_Name: WallUp
   m_TagString: Door
@@ -1093,18 +1066,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b50f6f5b6da4b704693b92ffdb8ad7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1760699469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860630616581488615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9805108608b302545aaa2143bd631132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &860630616661295930
@@ -1359,7 +1320,6 @@ GameObject:
   - component: {fileID: 860630616724425227}
   - component: {fileID: 860630616724425224}
   - component: {fileID: 1886867885}
-  - component: {fileID: 1886867886}
   m_Layer: 0
   m_Name: WallDown
   m_TagString: Door
@@ -1464,18 +1424,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b50f6f5b6da4b704693b92ffdb8ad7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1886867886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860630616724425222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9805108608b302545aaa2143bd631132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &860630616851116886
