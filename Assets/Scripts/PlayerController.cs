@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && rollcharge <= 0 && rollchargeCD <= 0)
         {
+            rb.velocity = Vector3.zero;
             rollcharge = rollCooldown;
             rollchargeCD = rollCooldownDelay;
 
