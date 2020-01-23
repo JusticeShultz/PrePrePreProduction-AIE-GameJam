@@ -5,22 +5,24 @@ using UnityEngine;
 public class ArtifactPickup : MonoBehaviour
 {
     public Artifact artifact;
+
     public float pickupRange = 3.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public LayerMask mask;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Collider[] hit = Physics.OverlapSphere(transform.position, pickupRange, mask);
+
+        if(hit.Length > 0 && artifact != null)
+        {
+            //In range to pickup.
+        }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position, pickupRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, pickupRange);
     }
 }
