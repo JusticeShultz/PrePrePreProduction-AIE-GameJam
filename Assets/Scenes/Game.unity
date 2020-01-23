@@ -570,6 +570,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860630615489464699, guid: a03ced6ee2bf0074f847b8d6669f126a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 860630615972811355, guid: a03ced6ee2bf0074f847b8d6669f126a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 860630616581488615, guid: a03ced6ee2bf0074f847b8d6669f126a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 860630616724425222, guid: a03ced6ee2bf0074f847b8d6669f126a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 860630616851116886, guid: a03ced6ee2bf0074f847b8d6669f126a,
         type: 3}
       propertyPath: m_Name

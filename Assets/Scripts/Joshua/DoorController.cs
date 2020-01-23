@@ -24,6 +24,7 @@ public class DoorController : MonoBehaviour
         foreach (var door in doors)
         {
             door.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow * 2);
+            //door.GetComponent<Animator>().SetBool("Open", true);
             door.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
@@ -33,6 +34,7 @@ public class DoorController : MonoBehaviour
         foreach (var door in doors)
         {
             door.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red * 2);
+            //door.GetComponent<Animator>().SetBool("Open", false);
             door.GetComponent<BoxCollider>().isTrigger = false;
         }
     }
