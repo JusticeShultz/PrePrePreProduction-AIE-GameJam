@@ -6,15 +6,21 @@ public class DungeonSpawner : MonoBehaviour
 {
     float size;
     public PrefabManager objects;
+    GameObject dungeonToSpawn; 
+
+    private void Start()
+    {
+        dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length)];
+        size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
+    }
+
 
     public void Spawn(string name)
     {
         Vector3 newPos = gameObject.transform.position;
         string wallToDisable = "";
 
-        GameObject dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length - 1)];
-
-        size = dungeonToSpawn.GetComponent<Renderer>().bounds.size.x;
+        
 
         switch (name)
         {
