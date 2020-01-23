@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public List<Artifact> artifacts = new List<Artifact>();
 
-    [ReadOnly] public Rigidbody rb;
+    public Rigidbody rb;
 
     float rollcharge = 0f;
     float rollchargeCD = 0f;
