@@ -84,16 +84,14 @@ public class EnemyAI : MonoBehaviour
 
     void Patrol()
     {
-        if (patrolPoints.Length != 0)
+       
+        agent.destination = patrolPoints[i].position;
+        if (Vector3.Distance(agent.destination,transform.position) < 2.0f)
         {
-            agent.destination = patrolPoints[i].position;
-            if (Vector3.Distance(agent.destination, transform.position) < 2.0f)
+            i++;
+            if (i == patrolPoints.Length)
             {
-                i++;
-                if (i == patrolPoints.Length)
-                {
-                    i = 0;
-                }
+                i = 0;
             }
         }
     }
