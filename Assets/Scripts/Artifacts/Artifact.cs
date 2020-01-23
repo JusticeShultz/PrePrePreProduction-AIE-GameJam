@@ -39,6 +39,7 @@ public class Artifact : ScriptableObject
     //Percent Mods
     public float health_percentage;
     public float damage_percentage;
+    public float attackSpeed_percentage;
     public float regen_percentage;
     public float armor_percentage;
     public float protection_percentage;

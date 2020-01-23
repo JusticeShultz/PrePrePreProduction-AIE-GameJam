@@ -11,11 +11,16 @@ public class PlayerController : MonoBehaviour
     public float rollSpeed = 500;
     public float rollCooldown = 1.2f;
     public float rollCooldownDelay = 0.5f;
-    
+    public float damage = 1;
+    public float attackSpeed = 1.1f;
+
+    public List<Artifact> artifacts = new List<Artifact>();
+
     [ReadOnly] public Rigidbody rb;
 
     float rollcharge = 0f;
     float rollchargeCD = 0f;
+    float attackCD = 0f;
 
     void Start()
     {
@@ -24,10 +29,10 @@ public class PlayerController : MonoBehaviour
         reference = this;
     }
 
-    private void Update()
-    {
+    //private void Update()
+    //{
         
-    }
+    //}
 
     void FixedUpdate()
     {
