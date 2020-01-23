@@ -42,5 +42,13 @@ public class DungeonSpawner : MonoBehaviour
 
         GameObject spawnedDungeon = (GameObject)Instantiate(objects.dungeon, newPos, Quaternion.identity);
         spawnedDungeon.transform.Find(wallToDisable).gameObject.SetActive(false);
+        StartCoroutine(EnableWall(spawnedDungeon.transform.Find(wallToDisable).gameObject));
+    }
+
+    IEnumerator EnableWall(GameObject wall)
+    {
+        yield return new WaitForSeconds(2);
+        wall.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
