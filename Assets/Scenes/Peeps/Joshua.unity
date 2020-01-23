@@ -243,6 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 250
+  rollSpeed: 500
+  rollCooldown: 1.2
+  rollCooldownDelay: 0.5
   rb: {fileID: 0}
 --- !u!54 &256378541
 Rigidbody:

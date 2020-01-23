@@ -7,16 +7,14 @@ public class DungeonSpawner : MonoBehaviour
     float size;
     public PrefabManager objects;
 
-    private void Start()
-    {
-        size = objects.dungeon.GetComponent<Renderer>().bounds.size.x;
-    }
-
-
     public void Spawn(string name)
     {
         Vector3 newPos = gameObject.transform.position;
         string wallToDisable = "";
+
+        GameObject dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length - 1)];
+
+        size = dungeonToSpawn.GetComponent<Renderer>().bounds.size.x;
 
         switch (name)
         {
@@ -40,7 +38,7 @@ public class DungeonSpawner : MonoBehaviour
                 break;
         }
 
-        GameObject spawnedDungeon = (GameObject)Instantiate(objects.dungeon, newPos, Quaternion.identity);
+        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, Quaternion.identity);
         spawnedDungeon.transform.Find(wallToDisable).gameObject.SetActive(false);
         StartCoroutine(EnableWall(spawnedDungeon.transform.Find(wallToDisable).gameObject));
     }
@@ -49,6 +47,6 @@ public class DungeonSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         wall.SetActive(true);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

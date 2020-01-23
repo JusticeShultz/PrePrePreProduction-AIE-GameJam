@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd6d097ab8da5149a2c04abffb1eee3, type: 3}
   m_Name: Prefabs
   m_EditorClassIdentifier: 
-  dungeon: {fileID: 2232133799442887618, guid: 258ee5a11db822641bef34f30cf013c2, type: 3}
+  dungeons:
+  - {fileID: 2232133799442887618, guid: 258ee5a11db822641bef34f30cf013c2, type: 3}
+  - {fileID: 4848198631074770450, guid: b6282e0a3f01c2b4490dee1c2a526cdb, type: 3}
+  - {fileID: 4667434275291369142, guid: ea320cf69b78a0046896053b32783b4a, type: 3}

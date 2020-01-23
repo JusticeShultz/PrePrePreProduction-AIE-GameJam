@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Inventory/List", order =1)]
 public class PrefabManager : ScriptableObject
 {
-    public GameObject dungeon;
+    public GameObject[] dungeons;
+
+
 }
