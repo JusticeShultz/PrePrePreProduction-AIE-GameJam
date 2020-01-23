@@ -15,8 +15,8 @@ public class DungeonSpawner : MonoBehaviour
         dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length)];
         size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
         doorController = GetComponent<DoorController>();
-        StartCoroutine(DoorDisable());
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
 
@@ -44,24 +44,10 @@ public class DungeonSpawner : MonoBehaviour
         }
 
         GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, Quaternion.identity);
-        player.transform.position = newPos + Vector3.up;
+        Vector3 direction = newPos - gameObject.transform.position;
+        direction.Normalize();
+        player.transform.position += direction*2;
         Destroy(gameObject, 1f);
     }
-
-
-    IEnumerator DoorEnable()
-    {
-        yield return new WaitForSeconds(1);
-        doorController.DoorClosed();
-        StartCoroutine(DoorDisable());
-    }
-
-    IEnumerator DoorDisable()
-    {
-        yield return new WaitForSeconds(1);
-        doorController.DoorOpen();
-        StartCoroutine(DoorEnable());
-    }
-
 
 }
