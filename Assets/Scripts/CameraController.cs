@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController reference;
+    public static GameObject instance;
+
     public float speed = 0.15f;
 
     public Transform target;
     public Vector3 offsetFromTarget;
+
+    private void Start()
+    {
+        reference = this;
+        instance = gameObject;
+    }
 
     void FixedUpdate()
     {

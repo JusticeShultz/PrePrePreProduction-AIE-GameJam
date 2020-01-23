@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static GameObject instance;
+    public static PlayerController reference;
+
     public float movementSpeed = 20f;
     public float rollSpeed = 500;
     public float rollCooldown = 1.2f;
@@ -17,6 +20,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        instance = gameObject;
+        reference = this;
     }
 
     private void Update()
