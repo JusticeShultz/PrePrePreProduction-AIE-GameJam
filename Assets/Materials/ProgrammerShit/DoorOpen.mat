@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door
+  m_Name: DoorOpen
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
@@ -93,7 +93,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.2783019, g: 0.48018137, b: 1, a: 1}
     - _Color: {r: 0.2783019, g: 0.48018137, b: 1, a: 1}
-    - _EmissionColor: {r: 3.031433, g: 1.1650214, b: 0, a: 1}
+    - _EmissionColor: {r: 1.7207954, g: 1.6937672, b: 0.23424439, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &7667781198603551692
 MonoBehaviour:

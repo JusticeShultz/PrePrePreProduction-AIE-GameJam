@@ -6,53 +6,62 @@ public class DungeonSpawner : MonoBehaviour
 {
     float size;
     public PrefabManager objects;
-    GameObject dungeonToSpawn; 
+    GameObject dungeonToSpawn;
+    DoorController doorController;
+    private GameObject player;
 
     private void Start()
     {
         dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length)];
         size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
+        doorController = GetComponent<DoorController>();
+        StartCoroutine(DoorDisable());
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     public void Spawn(string name)
     {
+        print("called");
         Vector3 newPos = gameObject.transform.position;
-        string wallToDisable = "";
-
-        
 
         switch (name)
         {
             case "WallRight":
                 newPos.x += size;
-                wallToDisable = "WallLeft";
                 break;
             case "WallLeft":
                 newPos.x -= size;
-                wallToDisable = "WallRight";
                 break;
             case "WallUp":
                 newPos.z += size;
-                wallToDisable = "WallDown";
                 break;
             case "WallDown":
                 newPos.z -= size;
-                wallToDisable = "WallUp";
                 break;
             default:
                 break;
         }
 
         GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, Quaternion.identity);
-        spawnedDungeon.transform.Find(wallToDisable).gameObject.SetActive(false);
-        StartCoroutine(EnableWall(spawnedDungeon.transform.Find(wallToDisable).gameObject));
+        player.transform.position = newPos + Vector3.up;
+        Destroy(gameObject, 1f);
     }
 
-    IEnumerator EnableWall(GameObject wall)
+
+    IEnumerator DoorEnable()
     {
-        yield return new WaitForSeconds(2);
-        wall.SetActive(true);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(1);
+        doorController.DoorClosed();
+        StartCoroutine(DoorDisable());
     }
+
+    IEnumerator DoorDisable()
+    {
+        yield return new WaitForSeconds(1);
+        doorController.DoorOpen();
+        StartCoroutine(DoorEnable());
+    }
+
+
 }
