@@ -17,6 +17,11 @@ public class ArtifactPickup : MonoBehaviour
         if(hit.Length > 0 && artifact != null)
         {
             //In range to pickup.
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                PlayerController.reference.artifacts.Add(artifact);
+                Destroy(gameObject);
+            }
         }
     }
 
