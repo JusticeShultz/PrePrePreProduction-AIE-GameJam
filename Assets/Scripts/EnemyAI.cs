@@ -18,7 +18,11 @@ public class EnemyAI : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    [SerializeField]
     private ai state = ai.Patrol;
+
+    public Animator anim;
+
 
     private enum ai {
         Attack,
@@ -27,8 +31,8 @@ public class EnemyAI : MonoBehaviour
         Follow
     }
 
-    int i = 0;
 
+    int i = 0;
 
     void Update()
     {
@@ -58,12 +62,26 @@ public class EnemyAI : MonoBehaviour
         {
             state = ai.Die;
         }
+
+        Vector3 playerPosition = PlayerController.instance.transform.position;
+        if (Vector3.Distance(playerPosition, transform.position) < 5)
+        {
+            state = ai.Follow;
+        }
+
+        if (Vector3.Distance(playerPosition, transform.position) < 3)
+        {
+            state = ai.Attack;
+        }
     }
 
 
     void Attack()
     {
-
+        anim.SetBool("attack", true);
+        //attack
+        //check for player position
+        //go back to follow or patrol
     }
 
     void Die()
@@ -105,15 +123,5 @@ public class EnemyAI : MonoBehaviour
     void Follow()
     {
         agent.destination = PlayerController.instance.transform.position;
-    }
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            state = ai.Follow;
-        }
     }
 }
