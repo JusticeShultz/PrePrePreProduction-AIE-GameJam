@@ -38,13 +38,13 @@ public class DungeonSpawner : MonoBehaviour
 
     private void spawnEnemy()
     {
-        Vector3 randomDirection = new Vector3(Random.Range(-meshSize + 3, meshSize - 3), 0, Random.Range(-meshSize + 3, meshSize - 3));
+        Vector3 randomDirection = new Vector3(Random.Range(-meshSize + 5, meshSize - 5), 0, Random.Range(-meshSize + 5, meshSize - 5));
         randomDirection.Normalize();
-        randomDirection *= Random.Range(-meshSize + 3, meshSize - 3);
+        randomDirection *= Random.Range(-meshSize + 5, meshSize - 5);
 
         GameObject instantiatedEnemy = Instantiate(objects.enemy[Random.Range(0,objects.enemy.Length)], randomDirection+gameObject.transform.position, Quaternion.identity);
-        instantiatedEnemy.GetComponent<EnemyAI>().patrolPoints.Add(new Vector3(Random.Range(-meshSize + 3, meshSize - 3), 0, Random.Range(-meshSize + 3, meshSize - 3)));
-        instantiatedEnemy.GetComponent<EnemyAI>().patrolPoints.Add(new Vector3(Random.Range(-meshSize + 3, meshSize - 3), 0, Random.Range(-meshSize + 3, meshSize - 3)));
+        instantiatedEnemy.GetComponent<EnemyAI>().patrolPoints.Add(new Vector3(Random.Range(-meshSize + 5, meshSize - 5), 0, Random.Range(-meshSize + 5, meshSize - 5)));
+        instantiatedEnemy.GetComponent<EnemyAI>().patrolPoints.Add(new Vector3(Random.Range(-meshSize + 5, meshSize - 5), 0, Random.Range(-meshSize + 5, meshSize - 5)));
         instantiatedEnemy.transform.SetParent(gameObject.transform);
     }
 

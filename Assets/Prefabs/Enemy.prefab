@@ -232,6 +232,8 @@ MonoBehaviour:
     type: 3}
   state: 2
   anim: {fileID: 4936436138495122113}
+  attackSound: {fileID: 8300000, guid: 69c54c588e22ba14d9bca6d53171c1db, type: 3}
+  damageSound: {fileID: 0}
 --- !u!1001 &1134095688812251073
 PrefabInstance:
   m_ObjectHideFlags: 0

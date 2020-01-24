@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
     public static GameObject instance;
     public static PlayerController reference;
 
+
+    public AudioClip attackSound;
+    public AudioClip damageSound;
+    AudioSource playerSounds;
+    
+
     public float maxHealth
     {
         get
@@ -57,6 +63,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         instance = gameObject;
         reference = this;
+
+        playerSounds = GetComponent<AudioSource>();
+
+
     }
 
     //private void Update()
@@ -112,6 +122,7 @@ public class PlayerController : MonoBehaviour
             {
                 attackCD = attackSpeed;
                 animator.SetTrigger("Attack");
+                playerSounds.PlayOneShot(attackSound);
             }
         }
 
