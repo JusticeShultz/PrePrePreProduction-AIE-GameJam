@@ -15,3 +15,4 @@ MonoBehaviour:
   dungeons:
   - {fileID: 1026472434161324016, guid: e2ed51d64627fd64ab10d70cb0629924, type: 3}
   - {fileID: 4898324120152888640, guid: 588340e1c8bc01248ab9ed0bf3d38f08, type: 3}
+  - {fileID: 4836892002918257661, guid: 0d26bc3a5722d4541a01fc3f52d4e0e3, type: 3}

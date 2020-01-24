@@ -22,34 +22,16 @@ public class DungeonSpawner : MonoBehaviour
     }
 
 
-    public void Spawn(string name)
+    public void Spawn(Vector3 exitPoint)
     {
-        Vector3 newPos = gameObject.transform.position;
 
-        switch (name)
-        {
-            case "WallRight":
-                newPos.x += size;
-                break;
-            case "WallLeft":
-                newPos.x -= size;
-                break;
-            case "WallUp":
-                newPos.z += size;
-                break;
-            case "WallDown":
-                newPos.z -= size;
-                break;
-            default:
-                break;
-        }
-
-        Vector3 direction = newPos - gameObject.transform.position;
+        Vector3 direction = exitPoint - gameObject.transform.position;
         direction.Normalize();
+        direction *= size;
         Quaternion rotation = Quaternion.LookRotation(direction);
-        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, rotation);
-        player.transform.position += direction*2;
-        //Destroy(gameObject, 1f);
+        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, direction + gameObject.transform.position, rotation);
+        player.transform.position += direction/size *2;
+        Destroy(gameObject, 1f);
     }
 
     IEnumerator open()
