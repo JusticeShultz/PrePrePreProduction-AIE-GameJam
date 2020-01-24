@@ -44,12 +44,16 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public UnityEngine.UI.Image healthRadial;
+    public UnityEngine.UI.Text gemText;
+
     float rollcharge = 0f;
     float rollchargeCD = 0f;
     float attackCD = 0f;
 
     void Start()
     {
+        Gem.gems = 0;
         rb = GetComponent<Rigidbody>();
         instance = gameObject;
         reference = this;
@@ -112,5 +116,8 @@ public class PlayerController : MonoBehaviour
         }
 
         PlayerSword.swinging = animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerSlash");
+
+        healthRadial.fillAmount = currentHealth / maxHealth;
+        gemText.text = "Gems: " + Gem.gems;
     }
 }
