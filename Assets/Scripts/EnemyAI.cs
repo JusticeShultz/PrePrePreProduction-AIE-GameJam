@@ -18,6 +18,9 @@ public class EnemyAI : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    public EnemyHitbox hitbox;
+    public GameObject deathEffect;
+
     [SerializeField]
     private ai state = ai.Patrol;
 
@@ -56,14 +59,9 @@ public class EnemyAI : MonoBehaviour
                 break;
 
         }
-        
-
-        if (currentHealth < 0)
-        {
-            state = ai.Die;
-        }
 
         Vector3 playerPosition = PlayerController.instance.transform.position;
+
         if (Vector3.Distance(playerPosition, transform.position) < 5)
         {
             state = ai.Follow;
@@ -73,12 +71,22 @@ public class EnemyAI : MonoBehaviour
         {
             state = ai.Attack;
         }
+
+        if (currentHealth < 0)
+        {
+            state = ai.Die;
+        }
     }
 
 
     void Attack()
     {
         anim.SetBool("attack", true);
+        
+        if(hitbox.objectsInRange.Count > 0)
+        {
+            PlayerController.reference.currentHealth -= attackDamage;
+        }
         //attack
         //check for player position
         //go back to follow or patrol
@@ -96,12 +104,15 @@ public class EnemyAI : MonoBehaviour
     IEnumerator Death()
     {
         //wait 2 sec (let animation play) then destroy enemy
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.01f);
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
     void Patrol()
     {
+        anim.SetBool("attack", false);
+
         if (patrolPoints.Length != 0)
         {
             if (agent.isOnNavMesh)
@@ -122,6 +133,7 @@ public class EnemyAI : MonoBehaviour
 
     void Follow()
     {
+        anim.SetBool("attack", false);
         agent.destination = PlayerController.instance.transform.position;
     }
 }

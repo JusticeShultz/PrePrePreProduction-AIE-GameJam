@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody rb;
 
+    public Animator animator;
+
     float rollcharge = 0f;
     float rollchargeCD = 0f;
     float attackCD = 0f;
@@ -51,8 +53,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         instance = gameObject;
         reference = this;
-
-        currentHealth = maxHealth;
     }
 
     //private void Update()
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        attackCD -= Time.deltaTime;
+
         rollcharge -= Time.deltaTime;
 
         if (rollcharge <= 0)
@@ -98,6 +100,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.drag = 3;
         }
-        else rb.drag = 25;
+        else
+        {
+            rb.drag = 25;
+
+            if (Input.GetMouseButtonDown(0) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerSlash"))
+            {
+                attackCD = attackSpeed;
+                animator.SetTrigger("Attack");
+            }
+        }
+
+        PlayerSword.swinging = animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerSlash");
     }
 }

@@ -13,7 +13,7 @@ public class PlayerSword : MonoBehaviour
         swinging = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if(swinging && collision.transform.tag == "Enemy")
         {
