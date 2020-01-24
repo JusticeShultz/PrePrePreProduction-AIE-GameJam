@@ -6,6 +6,5 @@ using UnityEngine;
 public class PrefabManager : ScriptableObject
 {
     public GameObject[] dungeons;
-
-
+    public GameObject[] enemy;
 }
