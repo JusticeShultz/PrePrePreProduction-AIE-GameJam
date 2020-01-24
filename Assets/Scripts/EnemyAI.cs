@@ -65,12 +65,12 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 playerPosition = PlayerController.instance.transform.position;
 
-        if (Vector3.Distance(playerPosition, transform.position) < 5)
+        if (Vector3.Distance(playerPosition, transform.position) < 7)
         {
             state = ai.Follow;
         }
 
-        if (Vector3.Distance(playerPosition, transform.position) < 3)
+        if (Vector3.Distance(playerPosition, transform.position) < 5)
         {
             state = ai.Attack;
         }
@@ -85,7 +85,6 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         anim.SetBool("attack", true);
-        enemySounds.PlayOneShot(attackSound);
 
         if (hitbox.objectsInRange.Count > 0)
         {
