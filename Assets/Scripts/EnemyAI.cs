@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     public float attackRange;
     public float blockChance;
 
-    public Transform[] patrolPoints;
+    public List<Vector3> patrolPoints;
 
     public NavMeshAgent agent;
 
@@ -113,15 +113,15 @@ public class EnemyAI : MonoBehaviour
     {
         anim.SetBool("attack", false);
 
-        if (patrolPoints.Length != 0)
+        if (patrolPoints.Count != 0)
         {
             if (agent.isOnNavMesh)
             {
-                agent.destination = patrolPoints[i].position;
+                agent.destination = patrolPoints[i];
                 if (Vector3.Distance(agent.destination, transform.position) < 2.0f)
                 {
                     i++;
-                    if (i == patrolPoints.Length)
+                    if (i == patrolPoints.Count)
                     {
                         i = 0;
                     }

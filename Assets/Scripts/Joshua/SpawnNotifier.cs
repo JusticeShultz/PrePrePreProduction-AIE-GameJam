@@ -15,6 +15,9 @@ public class SpawnNotifier : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        parentObject.GetComponent<DungeonSpawner>().Spawn(transform.position);
+        if (other.tag == "Player")
+        {
+            parentObject.GetComponent<DungeonSpawner>().Spawn(transform.position);
+        }
     }
 }
