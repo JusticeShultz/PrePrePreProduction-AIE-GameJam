@@ -2631,6 +2631,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!64 &289540939
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394687586596536209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -8056562690769784649, guid: 9fb690ebe6695274eba4a4da5496d137, type: 3}
 --- !u!1 &9179084840768382171
 GameObject:
   m_ObjectHideFlags: 0
