@@ -25,6 +25,9 @@ public class EnemyAI : MonoBehaviour
     private ai state = ai.Patrol;
 
     public Animator anim;
+    public AudioClip attackSound;
+    public AudioClip damageSound;
+    AudioSource enemySounds;
 
 
     private enum ai {
@@ -82,8 +85,9 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         anim.SetBool("attack", true);
-        
-        if(hitbox.objectsInRange.Count > 0)
+        enemySounds.PlayOneShot(attackSound);
+
+        if (hitbox.objectsInRange.Count > 0)
         {
             PlayerController.reference.currentHealth -= attackDamage;
         }
