@@ -9,21 +9,21 @@ public class DungeonSpawner : MonoBehaviour
     GameObject dungeonToSpawn;
     DoorController doorController;
     private GameObject player;
+    int rand = 0;
 
     private void Start()
     {
-        dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length)];
+        rand = Random.Range(0, objects.dungeons.Length);
+        dungeonToSpawn = objects.dungeons[rand];
         size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
         doorController = GetComponent<DoorController>();
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(open());
-
     }
 
 
     public void Spawn(string name)
     {
-        print("called");
         Vector3 newPos = gameObject.transform.position;
 
         switch (name)
@@ -44,23 +44,24 @@ public class DungeonSpawner : MonoBehaviour
                 break;
         }
 
-        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, Quaternion.identity);
         Vector3 direction = newPos - gameObject.transform.position;
         direction.Normalize();
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, rotation);
         player.transform.position += direction*2;
-        Destroy(gameObject, 1f);
+        //Destroy(gameObject, 1f);
     }
 
     IEnumerator open()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorOpen();
         StartCoroutine(close());
     }
 
     IEnumerator close()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorClosed();
         StartCoroutine(open());
     }
