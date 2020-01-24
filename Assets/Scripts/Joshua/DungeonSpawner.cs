@@ -9,58 +9,41 @@ public class DungeonSpawner : MonoBehaviour
     GameObject dungeonToSpawn;
     DoorController doorController;
     private GameObject player;
+    int rand = 0;
 
     private void Start()
     {
-        dungeonToSpawn = objects.dungeons[Random.Range(0, objects.dungeons.Length)];
+        rand = Random.Range(0, objects.dungeons.Length);
+        dungeonToSpawn = objects.dungeons[rand];
         size = dungeonToSpawn.GetComponent<Attributes>().size + GetComponent<Attributes>().size;
         doorController = GetComponent<DoorController>();
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(open());
-
     }
 
 
-    public void Spawn(string name)
+    public void Spawn(Vector3 exitPoint)
     {
-        print("called");
-        Vector3 newPos = gameObject.transform.position;
 
-        switch (name)
-        {
-            case "WallRight":
-                newPos.x += size;
-                break;
-            case "WallLeft":
-                newPos.x -= size;
-                break;
-            case "WallUp":
-                newPos.z += size;
-                break;
-            case "WallDown":
-                newPos.z -= size;
-                break;
-            default:
-                break;
-        }
-
-        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, newPos, Quaternion.identity);
-        Vector3 direction = newPos - gameObject.transform.position;
+        Vector3 direction = exitPoint - gameObject.transform.position;
         direction.Normalize();
-        player.transform.position += direction*2;
+        direction *= size;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        GameObject spawnedDungeon = (GameObject)Instantiate(dungeonToSpawn, direction + gameObject.transform.position, rotation);
+        player.transform.position += direction/size *2;
         Destroy(gameObject, 1f);
     }
 
     IEnumerator open()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorOpen();
         StartCoroutine(close());
     }
 
     IEnumerator close()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorClosed();
         StartCoroutine(open());
     }
