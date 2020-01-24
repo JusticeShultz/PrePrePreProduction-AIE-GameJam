@@ -7,6 +7,30 @@ public class PlayerController : MonoBehaviour
     public static GameObject instance;
     public static PlayerController reference;
 
+    public float maxHealth
+    {
+        get
+        {
+            float healthSum = 0;
+
+            for (int i = 0; i < artifacts.Count; i++)
+                healthSum += artifacts[i].health;
+
+            healthSum += baseHealth;
+
+            float percent = 0f;
+
+            for (int i = 0; i < artifacts.Count; i++)
+                percent += artifacts[i].health_percentage;
+
+            healthSum += healthSum * percent;
+
+            return baseHealth + healthSum;
+        }
+    }
+
+    public float baseHealth = 5f;
+    public float currentHealth = 5f;
     public float movementSpeed = 20f;
     public float rollSpeed = 500;
     public float rollCooldown = 1.2f;
@@ -27,6 +51,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         instance = gameObject;
         reference = this;
+
+        currentHealth = maxHealth;
     }
 
     //private void Update()
@@ -51,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 direction = target - transform.position;
                 float rotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
-                transform.rotation = Quaternion.Euler(0, rotation, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, rotation, 0), 0.25f);
             }
 
             rb.AddForce(((new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime) * movementSpeed) * 100);
