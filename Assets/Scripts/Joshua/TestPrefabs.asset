@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd6d097ab8da5149a2c04abffb1eee3, type: 3}
+  m_Name: TestPrefabs
+  m_EditorClassIdentifier: 
+  dungeons:
+  - {fileID: 1026472434161324016, guid: e2ed51d64627fd64ab10d70cb0629924, type: 3}
+  - {fileID: 4898324120152888640, guid: 588340e1c8bc01248ab9ed0bf3d38f08, type: 3}

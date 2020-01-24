@@ -23,7 +23,6 @@ public class DungeonSpawner : MonoBehaviour
 
     public void Spawn(string name)
     {
-        print("called");
         Vector3 newPos = gameObject.transform.position;
 
         switch (name)
@@ -53,14 +52,14 @@ public class DungeonSpawner : MonoBehaviour
 
     IEnumerator open()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorOpen();
         StartCoroutine(close());
     }
 
     IEnumerator close()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         doorController.DoorClosed();
         StartCoroutine(open());
     }
