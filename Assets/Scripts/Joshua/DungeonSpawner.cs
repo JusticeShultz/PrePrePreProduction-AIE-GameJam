@@ -23,8 +23,10 @@ public class DungeonSpawner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(open());
 
-        spawnEnemy();
-        spawnEnemy();
+        for (int i = 0; i < Random.Range(0, 2); i++)
+        {
+            spawnEnemy();
+        }
     }
 
     private void spawnEnemy()
